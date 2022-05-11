@@ -21,37 +21,27 @@ def get_cheapest_hotel_names(values):     # function to determine the cheapeast 
     return cheapest_hotel_name
 
 
-def get_stay_cost(week_date, fidelity_program):       # calculating the value of the stay in each hotel, with fidelity program and without it
-    total_Lakewood = 0
-    total_Bridgewood = 0
-    total_Ridgewood = 0
+def get_stay_cost(week_date, fidelity_program):        # calculating the value of the stay in each hotel, with fidelity program and without it
+    values_dic = {}                                    # dictionaty with the name and the value of each hotel
 
-    for day in week_date:
-        if(fidelity_program == "Rewards"):
-            if day in weekend:
-                total_Lakewood += hotel_values_rewards["Lakewood"][1]
-                total_Bridgewood += hotel_values_rewards["Bridgewood"][1]
-                total_Ridgewood += hotel_values_rewards["Ridgewood"][1]
-
-            else:
-                total_Lakewood += hotel_values_rewards["Lakewood"][0]
-                total_Bridgewood += hotel_values_rewards["Bridgewood"][0]
-                total_Ridgewood += hotel_values_rewards["Ridgewood"][0]
+    for name in hotel_values_regular:  
         
-        else:
-            if day in weekend:
-                total_Lakewood += hotel_values_regular["Lakewood"][1]
-                total_Bridgewood += hotel_values_regular["Bridgewood"][1]
-                total_Ridgewood += hotel_values_regular["Ridgewood"][1]
+        for day in week_date:
 
+            if(fidelity_program == "Rewards"):
+                if day in weekend:
+                    values_dic[name] =+ hotel_values_rewards[name][1]
+                else:
+                    values_dic[name] =+ hotel_values_rewards[name][0]
+            
             else:
-                total_Lakewood += hotel_values_regular["Lakewood"][0]
-                total_Bridgewood += hotel_values_regular["Bridgewood"][0]
-                total_Ridgewood += hotel_values_regular["Ridgewood"][0]
+                if day in weekend:
+                    values_dic[name] =+ hotel_values_regular[name][1]
+                else:
+                    values_dic[name] =+ hotel_values_regular[name][0]
+    
+    return values_dic
 
-    values = {"Lakewood": total_Lakewood, "Bridgewood": total_Bridgewood, "Ridgewood": total_Ridgewood}     # dictionaty with the name and the value of each hotel
-
-    return values
 
 
 def get_cheapest_hotel(number):   #DO NOT change the function's name
