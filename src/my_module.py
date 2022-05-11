@@ -7,10 +7,11 @@ fidelity = ['Rewards', 'Regular']
 hotel_values_rewards = {"Lakewood": [80, 80], "Bridgewood": [110, 50], "Ridgewood": [100, 40]}
 hotel_values_regular = {"Lakewood": [110, 90], "Bridgewood": [160, 60], "Ridgewood": [220, 150]}
 
-def get_cheapest_hotel_names(values):     # function to determine the cheapeast hotel
+def get_cheapest_hotel_names(values):     # function to determine the cheapeast hotel; can be more than one
     cheapest_hotel_name = []
     min_value = float("inf")
     for name, value in values.items():
+
         if value == min_value:
             cheapest_hotel_name.append(name)
         if value < min_value:
@@ -46,7 +47,7 @@ def get_stay_cost(week_date, fidelity_program):        # calculating the value o
 
 def get_cheapest_hotel(number):   #DO NOT change the function's name
     
-    input = str(number)     #making sure function input is a string
+    input = str(number)     #making sure input is a string
 
     s_input = input.replace(':', ' ').replace(',', ' ').split()     # removing punctuation and spliting the words
 
