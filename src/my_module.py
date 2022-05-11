@@ -12,14 +12,14 @@ def get_cheapest_hotel_name(values):     # function to determine the cheapeast h
     cheapest_hotel_name = []
     min_value = float("inf")
 
-    for name, value in values.items():
+    for hotel, value in values.items():
         if value == min_value:
-            cheapest_hotel_name.append(name)
+            cheapest_hotel_name.append(hotel)
 
         if value < min_value:
             min_value = value
             cheapest_hotel_name = []
-            cheapest_hotel_name.append(name)
+            cheapest_hotel_name.append(hotel)
 
     if len(cheapest_hotel_name) > 1:     # if there are two or more hotels with the same value, the one with most stars is chosen
         hotel_star = []
