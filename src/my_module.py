@@ -24,21 +24,21 @@ def get_cheapest_hotel_names(values):     # function to determine the cheapeast 
 def get_stay_cost(week_date, fidelity_program):        # calculating the value of the stay in each hotel, with fidelity program and without it
     values_dic = {}                                    # dictionaty with the name and the value of each hotel
 
-    for name in hotel_values_regular:  
-        
+    for hotel_name in hotel_values_regular:  
+
         for day in week_date:
 
             if(fidelity_program == "Rewards"):
                 if day in weekend:
-                    values_dic[name] =+ hotel_values_rewards[name][1]
+                    values_dic[hotel_name] =+ hotel_values_rewards[hotel_name][1]
                 else:
-                    values_dic[name] =+ hotel_values_rewards[name][0]
+                    values_dic[hotel_name] =+ hotel_values_rewards[hotel_name][0]
             
             else:
                 if day in weekend:
-                    values_dic[name] =+ hotel_values_regular[name][1]
+                    values_dic[hotel_name] =+ hotel_values_regular[hotel_name][1]
                 else:
-                    values_dic[name] =+ hotel_values_regular[name][0]
+                    values_dic[hotel_name] =+ hotel_values_regular[hotel_name][0]
     
     return values_dic
 
