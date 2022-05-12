@@ -25,3 +25,5 @@ $ py.test
 **After implementing your solution, it should pass the unit tests available.** 
 
 **Solution in my_module.py**
+
+Solution using only python native libraries to simplify avaluation and testing
