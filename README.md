@@ -26,4 +26,4 @@ $ py.test
 
 **Solution in my_module.py**
 
-Solution using only python native libraries to simplify avaluation and testing
+Solution using only python native libraries to simplify evaluation and testing
